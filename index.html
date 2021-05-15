@@ -6,6 +6,468 @@
 <link rel="stylesheet" href="css/all/header.css">
 <link rel="stylesheet" href="css/list.css">
 <link rel="stylesheet" href="css/e_syo.css">
+<style>
+body{
+  /*background: #f1ede3;*/
+  /*肌色*/
+  background: #f7f7f7;
+  font-family: 'YuGothic','Yu Gothic','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3','メイリオ', 'Meiryo','ＭＳ ゴシック',sans-serif;
+  /*入力フォームと同じ背景の色*/
+  /*背景の色#f1ede3\*/
+}
+
+h1#title{
+  padding: 1rem 2rem;
+  margin-bottom: 30px;
+  /*border-top: 3px solid #000;*/
+  border-bottom: 3px solid #3ba6e3;
+  font-size: 28px;
+}
+
+#book_list_title{
+  padding: 1rem 2rem;
+  margin-bottom: 30px;
+  /*border-top: 3px solid #000;*/
+  border-bottom: 3px solid orange;
+  font-size: 28px;
+}
+
+.book_list_back{
+display: inline-block;
+    font-size: 13pt;
+    text-align: center;
+    cursor: pointer;
+    padding: 8px 20px;
+    /*background: #fdbf64;*/
+    color: #000;
+    line-height: 1em;
+    /*transition: .3s;*/
+    /*border: 2px solid #000;*/
+    box-shadow: 0px 0px 3px orange;
+    margin: 0px 20px 20px;
+    text-decoration: none;
+}
+
+.book_list_back:hover{
+  color: #000;
+  background: orange;
+}
+
+#eveli_art{
+  margin: 40px 90px;
+}
+
+/*色々な機能とか情報とかあるとこ*/
+.el_form{
+  margin-top:40px;
+  text-align: right;
+}
+
+table, th, td {
+  /* border-collapse: collapse; */
+  /*border: 1.2px solid #000000;*/
+  /*全テーブルセルのボーダーの色を黒に*/
+  /*line-height: 1.5;*/
+}
+
+table.type06{
+  /* border-spacing: 5px 5px; */ /* 左右　上下 */
+  background: #fff;
+  box-shadow: 0px 0px 2px gray;
+  /*outline: 3px solid #ffffff;*/
+  /*テーブルの隙間の指定*/
+}
+
+/*テーブルの奇数列の色を変える*/
+tr:nth-child(even) {
+  background: #eee;
+}
+
+/*テーブルのヘッドのCSS*/
+table.type06 th {
+  width: 150px;
+  height: 40px;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+  vertical-align: top;
+  background: #fff;
+  /*background: #ffffff;*/
+  /*border-bottom: solid 2px #ece200;#3ba6e3*/
+  color: #000;
+  box-shadow: 0px 0px 1px gray;
+}
+
+table.type06 tr{
+  /*box-shadow: 2px 2px 3px gray;*/
+}
+.td_data {
+  width: 350px;
+  padding: 20px 0px;
+  /*vertical-align: top;*/
+ }
+
+ .height{
+  height: 95px;
+ }
+
+ .td_time{
+  width: 280px;
+  padding: 10px 2px;
+  text-align: center;
+ }
+
+/*日時と火曜日とかのラベル*/
+ .td_time label{
+
+ }
+
+
+table.type06 td.seni{
+  height: 67px;
+  /*width: 210px;*/
+}
+/*遷移ボタン*/
+.seni a{
+  display: block;
+  height: 100%;
+  padding: 28px 0px;
+  text-align: center;
+  background: #3ba6e3;
+  /*#1c67ef;*/
+  color: #ffff;
+  text-decoration: none;
+  font-size: 20px;
+  /*width: 30%;*/
+  /*margin: 0px;*/
+  /*padding: 0px;*/
+}
+
+/*マウスを合わせたら色が変わるようにしたい*/
+.seni a:hover {
+  color         : #000066;     /* 背景色     */
+  background    : #ffffff;     /* 文字色     */
+  border: 2px solid #3ba6e3;
+}
+
+/*予約一覧の詳細ボタンの色をオレンジに*/
+.book_syosa a{
+  background: orange;
+}
+.book_syosa a:hover {
+  border: 2px solid orange;
+}
+/*残り枚数の文字を大きくし真ん中に*/
+.remainn{
+  font-size: 1.5em;
+  /*border-bottom: 4px solid yellow;*/
+}
+
+.td_rema{
+  text-align: center;
+}
+
+/*ここからはイベントの開催状況のラベルの設定*/
+/*均等配列・余白の調節*/
+.td_fl{
+  /*text-align: center;*/
+  text-align: justify;
+  text-align-last: justify;
+  padding: 0px 20px;
+  font-size: 1.25em;
+  width: 200px;
+}
+
+.tyushi{
+  border-bottom: 2px solid red;
+}
+
+.yote{
+  border-bottom: 2px solid #b0c865;
+}
+
+.syu{
+  border-bottom: 2px solid #80796c;
+  color: #80796c;
+  font-size: 0.9em;
+}
+
+.mati{
+  border-bottom: 2px solid blue;
+}
+
+.tyuu{
+  /*border-top: 2px solid orange;*/
+  border-bottom: 2px solid orange;
+}
+
+.syosa_mark{
+  color: #ece200;
+}
+
+.seni a:after{
+  content:"\f105";
+  font-family: "Font Awesome 5 Free";
+}
+
+/*
+@media screen and (max-width: 400px) {
+  .tbl-r04 {
+    width: 80%;
+  } 
+  .tbl-r04 .thead {
+    display: none;
+  }
+  .tbl-r04 tr,
+  .tbl-r04 td{
+    display: block;
+    width: 100%;
+    position: relative;
+  }
+  .tbl-r04 td:first-child:before {
+    content: "見出し:before";
+    background: #e9727e;
+    box-sizing: border-box;
+    color: #fff;
+    font-weight: bold;
+    height: 40px;
+    padding: 10px;
+    position: absolute;
+    top: -41px;
+    left: -0.2%;
+    display: block;
+    width: 100.5%;
+  }
+  .tbl-r04 tr {
+    margin-bottom: 40px;
+  }
+}*/
+
+
+#pagetop1{
+  width: 70px;
+  height: 50px;
+  position: fixed;
+  right: 15px;
+  bottom: 80px;
+  opacity: 0.8;
+  border-radius: 15px;
+  background-color: #f6b7aa;
+}
+#pagetop1 a{
+  position: relative;
+  display: block;
+  width: 70px;
+  height: 50px;
+  text-decoration: none;
+  text-align: center;
+}
+#pagetop1 a::before{
+  font-family: "Font Awesome 5 Free";
+  content: '\f062';
+  font-weight: 900;
+  font-size: 30px;
+  color: #fff;
+  position: absolute;
+  width: 30px;
+  height: 35px;
+  top: 10px;
+  bottom: 10px;
+  right: 0;
+  left: 0;
+  margin: auto;
+}
+
+h1.h1_esyo {
+  padding: 1rem 2rem;
+  margin-bottom: 30px;
+  border-top: 3px solid #3ba6e3;
+  border-bottom: 3px solid #3ba6e3;
+  font-size: 28px;
+}
+
+h1.book_h1{
+  border-top: 3px solid orange;
+  border-bottom: 3px solid orange;
+}
+
+.evesyo_art{
+  margin: 50px 90px 20px;
+  background: #fff;
+  box-shadow: 0px 0px 3px gray;
+  /*outline: 0.3px solid gray;*/
+  padding: 20px;
+}
+/*それぞれのタイトルに適用*/
+.evesyo_art dt {
+    font-size: 20px;
+    /*border-left: 7px solid #ff7c60;*/
+    /*padding: 1px 0 1px 10px;*/
+    margin-bottom: 10px;
+    font-weight: bold;
+    /*width: 20%;*/
+    /*横幅の指定ここで必要ある？01251747*/
+}
+nashi.evesyo_art dt {
+  color: #fff;
+  background: rgb(46 53 81);
+  -webkit-box-shadow: 5px 5px 0 rgb(46 53 81);
+  box-shadow: 5px 5px 0 rgb(46 53 81);
+}
+/*それぞれのタイトルの下のテキストに適用*/
+.evesyo_art dd {
+    font-size: 16px;
+    padding-bottom: 10px;
+    /*border-bottom: .5px solid #ddd;*/
+    margin-bottom: 10px;
+    padding-left: 3px;
+}
+/*概要に適用する*/
+.evesyo_art .viwe{
+  padding-bottom: 50px;
+  /*background: #f1f0e8;*/
+}
+
+.flex{
+  display: flex; 
+}
+.column{
+  flex-direction: column;
+}
+/*イベントの状態の横幅をイベント一覧画面と合わせるために指定*/
+.td_fl{
+  width: 150px;
+  margin-bottom: 30px;
+}
+
+/*このクラスを指定した要素の上の幅の間隔をあける*/
+.mar_top{
+  margin-top: 10px;
+}
+/*予約枚数を選択するセレクトボックスの設定*/
+.select{
+  width: 200px;
+  height: 40px;
+  margin: 5px 5px 0px 5px;
+}
+/*イベント詳細画面の予約確定ボタン*/
+.esyo_submit{
+  width: 150px;
+  height: 40px;
+  background: orange;
+  color: #fff;
+  border: 2px solid orange;
+  font-family: 'YuGothic';
+  font-weight: bold;
+}
+
+.esyo_submit:hover {
+  /*color         : #000066;     /* 背景色     */
+  background    : #ffc14f;     /* 文字色     */
+}
+
+/*予約確認画面の戻るボタン*/
+.sub_book{
+  background: #3ba6e3;
+  border: 2px solid #3ba6e3;
+}
+
+.sub_book:hover {
+  background    : #79bce3;     /* 文字色     */
+}
+.tyui{
+  font-size: 0.8em;
+  color: #80796c;
+  margin-left: 3px;
+}
+/*前へ戻るボタン*/
+/*button#back{
+  width: 170px;
+   height: 60px; 
+  font-size: 1.7em;
+  background: #00a0dc;
+}*/
+
+button#back{
+  border:solid 1px #ccc;
+  padding:15px 30px;
+  margin: 20px 0px 0px 90px;
+  font-family:Arial, sans-serif;
+  font-size:1.2em;
+  text-transform:uppercase;
+  font-weight:bold;
+  cursor:pointer;
+  width: 300px;
+  height: 70px;
+  font-size: 1.5em;
+  background: #3ba6e3;
+  color:#fff;
+}
+
+button#back:hover {
+  color         : #000;
+  background    : #fff;     /* 文字色     */
+  border: 2px solid #3ba6e3;
+}
+
+button#back.book{
+  background: orange;
+}
+
+button#back.book:hover {
+  border: 2px solid orange;
+  background    : #fff;     /* 文字色     */
+}
+
+button#back.qr_hyozi{
+  background: rgb(46 53 81);
+  width: 80%;
+  box-shadow: 0px 0px 3px gray;
+  margin:0 auto;
+}
+
+button#back.qr_hyozi:hover {
+  border: 2px solid rgb(46 53 81);
+  background    : #fff;     /* 文字色     */
+}
+
+.qr_hyozi_div{
+  margin: 20px;
+}
+.center{
+  text-align: center;
+}
+
+.outer{
+  display: table;
+  /*テーブルみたいなあれでそろえるやつ*/
+  /*普通にflexにしてよさそう*/
+  border-collapse: separate;
+  border-spacing: 10px 5px;
+}
+.inner{
+  display: table-cell;
+  vertical-align: middle;
+}
+.book_tickedata{
+  width: 220px;
+}
+
+.tatesen{
+  border-left: 3px solid gray;
+  border-right: 3px solid gray;
+}
+
+.div_atoday{
+  width: 100px;
+  margin: 0px 20px;
+}
+
+button#back.book.riset{
+  margin: 0px;
+  padding: 0px;
+}	
+</style>
 </head>
 <body>
 <button type="button" id="back" class="book" onclick="window.location.href = 'book_list.php'">イベント一覧へ戻る</button>
