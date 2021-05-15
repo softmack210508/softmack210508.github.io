@@ -1,11 +1,64 @@
-<html>
-  <head>
-    <meta charset='utf-8'>
-    <title>タイトル</title>
-  </head>
-  <body>
-    <!-- ここに書きたい内容を書く -->
-    
-    <p>aaaa</p>
-  </body>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>予約イベント詳細画面</title>
+<link rel="stylesheet" href="css/all/header.css">
+<link rel="stylesheet" href="css/list.css">
+<link rel="stylesheet" href="css/e_syo.css">
+</head>
+<body>
+<header><h1>蘆名：QRコードを用いた電子チケットの発行</h1><ul class="header"><li><a href="http://localhost/ashina_user/mypage/mypage.php">利用者メニューへ</a></li><li><a href="http://localhost/ashina_user/eve_list.php">イベント一覧</a></li></ul></header><main>
+
+<button type="button" id="back" class="book" onclick="window.location.href = 'book_list.php'">イベント一覧へ戻る</button>
+<article class="evesyo_art">
+<h1 class="h1_esyo book_h1">イベントの詳細</h1>
+
+	<dl>
+	<dt class="dt_title">イベント名</dt>
+	<dd>久しぶりに卒業研究を触ってみる</dd>
+	<dt class="dt_title">出演者</dt>
+	<dd>柴田陸大</dd>
+	<dt class="dt_title">開催場所</dt>
+	<dd>おれのいえ</dd>
+	<dt>開催日時</dt>
+	<dd>2022年12月31日 (土)<br>
+	開場10:00 / 開演13:00</dd>
+	<dt>開催場所</dt>
+	<dd>おれのいえ</dd>
+	<dt>イベント概要</dt>
+	<dd>あ<br />
+あ<br />
+あ</dd>
+	</dl>
+</article>
+<article class="evesyo_art outer">
+	<section class="book_tickedata">
+	<dt>予約枚数</dt>
+	<dd><label class="remainn">2</label> 枚</dd>
+	<dt>価格</dt>
+	<dd><label class="remainn">98092</label> 円 | 合計 : <label class="remainn">196184</label> 円</dd>
+	</section>
+
+<div class="inner center tatesen div_atoday">
+<div></div>
+<p class="">
+あと <label class='remainn'>595</label> 日</p>
+</div>
+
+	<div class="column inner" >
+	<button type="button" id="back" class="book riset" onclick="location.href = 'cancel/book_cancel.php?Eid=59'">予約のキャンセル</button>
+	<button type="button" id="back" class="book riset" onclick="location.href = '../../event/eve_syosa.php?Eid=59#konyu'">予約の追加</button>
+	<p class="tyui">＊予約の追加・キャンセルができる期間は予約受付終了まで</p>
+	<p>予約受付終了：2022年12月29日 23:59</p>
+	</div>
+
+
+</article>
+<div class="center qr_hyozi_div">
+<button type="button" id="back" class="qr_hyozi qr_hyozi" onclick='window.open("ticket/book_ticke.php?Eid=59", "google", "width=500,height=1500","left：500","menubar:no","location:no","toolbar:no")'>チケットの表示</button>
+</div>
+</main>
+<footer>.</footer>
+</body>
 </html>
